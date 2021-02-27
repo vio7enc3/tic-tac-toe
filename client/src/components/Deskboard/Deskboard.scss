@@ -1,0 +1,60 @@
+.deskboard {
+  background-color: #ffffff;
+  display: flex;
+  border-radius: 25px;
+  display: flex;
+  overflow: hidden;
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    &-col {
+      flex: 0 0 32.8%;
+      height: 33.3%;
+      border: 1px solid #680BAB;
+      &:nth-child(1) {
+        border-top: none;
+        border-left: none;
+      }
+      &:nth-child(2) {
+        border-top: none;
+      }
+      &:nth-child(3) {
+        border-top: none;
+        border-right: none;
+      }
+      &:nth-child(4) {
+        border-left: none;
+      }
+      &:nth-child(6) {
+        border-right: none;
+      }
+      &:nth-child(7) {
+        border-bottom: none;
+        border-left: none;
+      }
+      &:nth-child(8) {
+        border-bottom: none;
+      }
+      &:nth-child(9) {
+        border-bottom: none;
+        border-right: none;
+      }
+    }
+    &-col.x {
+      background-image: url('../../assets/icons/close.svg');
+      background-position: center;
+      background-size: 70%;
+      background-repeat: no-repeat;
+    }
+    &-col.o {
+      background-image: url('../../assets/icons/circle.svg');
+      background-position: center;
+      background-size: 90%;
+      background-repeat: no-repeat;
+    }
+  }
+}
