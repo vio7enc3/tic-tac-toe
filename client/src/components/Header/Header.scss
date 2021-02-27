@@ -1,0 +1,20 @@
+.header {
+  background-color: #680BAB;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  &__logo {
+    left: 50%;
+    border: 3px solid #FFCE00;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 60%;
+      height: 60%;
+    }
+  }
+}
