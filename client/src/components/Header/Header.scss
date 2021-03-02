@@ -1,8 +1,12 @@
 .header {
+  min-height: 50px;
+  position: relative;
   background-color: #680BAB;
-  padding: 10px;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   &__logo {
     left: 50%;
     border: 3px solid #FFCE00;
@@ -12,6 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    transform: translateX(-50%);
     img {
       width: 60%;
       height: 60%;
