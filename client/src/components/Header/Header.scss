@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   &__logo {
     left: 50%;
     border: 3px solid #FFCE00;
@@ -21,6 +21,27 @@
     img {
       width: 60%;
       height: 60%;
+    }
+  }
+  &__stats {
+    color: #20E688;
+    font-size: 20px;
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      color: #FFCE00;
+      font-weight: bold;
+    }
+  }
+}
+
+
+@media(max-width: 650px) {
+  .header {
+    &__stats {
+      display: none;
     }
   }
 }

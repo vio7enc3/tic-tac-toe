@@ -60,6 +60,7 @@
 }
 
 .sidemenu {
+  color: #680BAB;
   position: absolute;
   left: 0;
   top: 0;
@@ -83,7 +84,32 @@
     }
   }
   &__history {
+    margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
+    &--title {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    &-col {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      &--item {
+        color: #680BAB;
+        padding: 5px 8px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 100%;
+        margin: 0 2px;
+        text-align: center;
+        outline: none;
+        border: none;
+      }
+    }
   }
 }
 
