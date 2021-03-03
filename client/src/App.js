@@ -1,13 +1,16 @@
-import React from 'react'
-import { Deskboard } from './components/Deskboard'
-import { MainLayout } from './components/MainLayout'
+import React from "react";
+import { Deskboard } from "./components/Deskboard";
+import { MainLayout } from "./components/MainLayout";
+import { GameContext } from "./context/GameContext";
 
 function App() {
   return (
     <>
-      <MainLayout>
-        <Deskboard />
-      </MainLayout>
+      <GameContext>
+        <MainLayout>
+          <Deskboard />
+        </MainLayout>
+      </GameContext>
     </>
   );
 }
