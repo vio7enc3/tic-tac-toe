@@ -1,45 +1,71 @@
 import React from 'react'
+import { Context } from '../../context/GameContext'
 import { calculateWinner } from '../../helpers/calculateWinner'
 import { ModalWindow } from '../ModalWindow'
 import './Deskboard.scss'
 
-
-const arr = Array(9).fill(null)
-
 export const Deskboard = () => {
-  const [xIsNext, setXIsNext] = React.useState(true)
-  const [open, setIsOpen] = React.useState(false)
+  const {
+    deskboard,
+    setDeskboard,
+    xIsNext,
+    setXIsNext,
+    open,
+    setIsOpen,
+    history,
+    setHistory,
+    draw,
+    setIsDraw,
+    stepCount,
+    setOWins,
+    setXWins
+  } = React.useContext(Context)
 
   const handleClick = (e) => {
     const current = xIsNext ? 'x' : 'o'
     if (!e.target.classList.contains('active')) {
-      arr[+e.target.id] = current
+      deskboard[+e.target.id] = current
       setXIsNext(!xIsNext)
     }
-    e.target.classList.add('active')
+    setHistory(prev => [...prev, deskboard.slice(0, +e.target.id + 1)])
   }
 
-  const res = calculateWinner(arr)
+  const res = calculateWinner(deskboard)
 
   React.useEffect(() => {
     if (res === 'o' || res === 'x') {
       setIsOpen(true)
+      if (res === 'o') {
+        setOWins(prev => prev + 1)
+      }
+      if (res === 'x') {
+        setXWins(prev => prev + 1)
+      }
     }
-  }, [res])
+  }, [res, setIsOpen, setOWins, setXWins])
+
+  
+  React.useEffect(() => {
+    if (stepCount === 9 && res === null) {
+      setIsDraw(true)
+      setIsOpen(true)
+    }
+  }, [res, stepCount, setIsDraw, setIsOpen])
 
   const gameStartHandler = () => {
-    arr.fill(null)
+    deskboard.fill(null)
     setIsOpen(false)
     setXIsNext(true)
+    setIsDraw(false)
+    setHistory([])
   }
-  console.log(res);
 
   return (
     <div className="deskboard">
       <div className="deskboard__items">
-        {arr.map((cell, i) => (
+        {deskboard.map((cell, i) => (
           <div
-            className={`deskboard__items-col ${cell}`}
+            className={`deskboard__items-col ${(cell !== null && cell) || ''} ${(cell && 'active') || ''}`}
             key={i.toString()}
             role="button"
             onClick={handleClick}
