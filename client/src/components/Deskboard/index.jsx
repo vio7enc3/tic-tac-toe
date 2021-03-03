@@ -26,8 +26,8 @@ export const Deskboard = () => {
     if (!e.target.classList.contains('active')) {
       deskboard[+e.target.id] = current
       setXIsNext(!xIsNext)
+      setHistory(prev => [...prev, deskboard.slice(0, +e.target.id + 1)])
     }
-    setHistory(prev => [...prev, deskboard.slice(0, +e.target.id + 1)])
   }
 
   const res = calculateWinner(deskboard)
