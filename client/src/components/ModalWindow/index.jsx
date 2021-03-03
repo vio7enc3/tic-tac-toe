@@ -1,5 +1,6 @@
 import React from 'react'
 import { Backdrop, makeStyles, Modal } from '@material-ui/core';
+import { Context } from '../../context/GameContext';
 
 const useStyles = makeStyles({
   modal: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 
 export const ModalWindow = ({ winner, open, onClose }) => {
   const classes = useStyles()
+  const { draw } = React.useContext(Context)
 
   return (
     <Modal
@@ -37,8 +39,13 @@ export const ModalWindow = ({ winner, open, onClose }) => {
       }}
     >
       <div className={classes.container}>
-        <h1 className={classes.text} tabIndex={0}>Winner is {winner && winner.toUpperCase()}</h1>
-        <h3 className={classes.text}>Congratulations!</h3>
+        <h1 className={classes.text} tabIndex={0}>
+          {!draw
+            ? `Winner is ${winner && winner.toUpperCase()}`
+            : 'Draw'
+          }
+        </h1>
+        <h3 className={classes.text}>{(draw && 'Take a new battle!') || 'Congratulations!'}</h3>
         <button
           className={classes.startButton}
           type="button"
