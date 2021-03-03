@@ -31,4 +31,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  position: relative;
+}
+
+.app__fullscreen {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  border: 2px solid #FFCE00;
+  padding: 5px 10px;
+  color: #680BAB;
 }
